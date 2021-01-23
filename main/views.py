@@ -12,5 +12,8 @@ def second(request):
 def third(request):
     return HttpResponse("This is page test 3")
 
+def newpage(request):
+    return render(request, "newpage.html")
+
 
     

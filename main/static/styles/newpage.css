@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+.container{
+    width: 40px;
+    height: 20px;
+    border: 2px solid red;
+    flex-direction: row;
+}
+.box{
+    width: 30px;
+    height: 10px;
+    border: 2px solid black;
+}
