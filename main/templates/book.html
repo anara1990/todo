@@ -1,19 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./book.css"
+    <title>Book</title>
+    <!--<link rel="stylesheet" href="./book.css" -->
+    <link rel="stylesheet" href={% static 'styles/book.css' %} />
 </head>
 <body>
 
     <section>
         <div class="container">
-            <h2 class="title">Алхимик</h2>
-            <h1 class="subtitle">"Добиться воплощения Своей Судьбы - вот единственная подлинная обязанность человека..."</h1>
+            <div class="title">
+                <h2>Алхимик</h2>
+            </div>
+            <div class="subtitle">
+                <h1>"Добиться воплощения Своей Судьбы - вот единственная подлинная обязанность человека..."</h1>
+            </div>
+            
+           
             <div class="description">Алхимик учит его познавать «Душу Мира», рассказывает об Алхимии и помогает идти по пути Своей Судьбы. Он влюбляется в Фатиму и в конце концов находит сокровища, но не в Египте, а на своей родине — в Испании, пройдя все испытания, которые уготовила ему судьба.
-                
+
             </div>
 
             <div class="price">Цена: 200</div>
@@ -23,7 +31,6 @@
             <time datetime="date">Год публикации: 2015</time>
 
         </div>
-
     </section>
 </body>
 </html>
