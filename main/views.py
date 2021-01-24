@@ -1,6 +1,5 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse,redirect
 from .models import ToDo
-from .models import Book
 
 def homepage(request):
     return render(request, "index.html")
@@ -12,12 +11,13 @@ def test(request):
 def second(request):
     return HttpResponse("test 2 page")
 
-def third(request):
-    return HttpResponse("This is page test 3")
+def add_todo(request):
+    form = request.POST
+    text = form["todo_text"]
+    todo = ToDo(text=text)
+    todo.save()
+    return redirect(test)
 
-def book(request):
-    book_list = Book.objects.all()
-    return render(request, "book.html", {"book_list": book_list})
 
 
 

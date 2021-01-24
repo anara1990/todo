@@ -1,33 +1,37 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width>, initial-scale=1.0">
-        <title>Todo</title>
-        <!--<link rel="stylesheet" href="./index.css" /> -->
-        <link rel="stylesheet" href={% static 'styles/index.css' %} />
-        <!--<link rel="stylesheet" href="./checkbox.css" /> -->
-        <link rel="stylesheet" href={% static 'styles/checkbox.css' %} />
-        
-    
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>Todo</title>
+    <!--<link rel="stylesheet" href="./index.css" /> -->
+    <link rel="stylesheet" href={% static 'styles/index.css' %} />
+    <!--<link rel="stylesheet" href="./checkbox.css" /> -->
+    <link rel="stylesheet" href={% static 'styles/checkbox.css' %} />
+
+
+</head>
+
 <body>
-    
+
     <section>
         <div class="create_container">
-            <input class="create_input" type="text" placeholder="Напишите сюда новую задачу">
-            <button class="create_button">Добавить</button>
-
+            <form action="{% url 'add-todo' %}" method="POST">
+                {% csrf_token %}
+                <input class="create_input" type="text" placeholder="Напишите сюда новую задачу" name="todo_text">
+                <button class="create_button">Добавить</button>
+            </form>
         </div>
         <div class="todo_container">
 
             {% for todo in todo_list %}
 
-             <div class='todo_item'>
+            <div class='todo_item'>
                 <div class="todo_item_header">
                     <label class="checkbox_container">
-                        <input type="checkbox" checked="checked"/>
+                        <input type="checkbox" checked="checked" />
                         <span class="checkmark"></span>
                     </label>
                     <h4>{{ todo.text }}</h4>
@@ -47,4 +51,5 @@
 
     </section>
 </body>
+
 </html>
